@@ -46,6 +46,7 @@ app.use('/myabout', validate, MyAbout_router);
 app.use('/noidungbaiviet',validate, NoiDungBaiViet_router);
 
 
-app.listen(5000, () => {
+let port = process.env.PORT || 5000;
+app.listen(port, () => {
   console.log('server on run');
-})
+});
