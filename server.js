@@ -33,11 +33,20 @@ db.once('open', function () {
 app.use(express.json());
 app.use(cors());
 
+<<<<<<< HEAD
+=======
+// Trang home
+
+>>>>>>> 6ff58e6c7d3bea3751dce52aa88d14016e3ef114
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello to page web of me'
   })
 })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6ff58e6c7d3bea3751dce52aa88d14016e3ef114
 // Trang Admin
 app.use('/admin', Admin_router);
 
