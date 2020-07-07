@@ -1,9 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "my-hello",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "index": "nodemon --inspect server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +18,14 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.16",
     "nodemon": "^2.0.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoquangtri289/my-hello.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hoquangtri289/my-hello/issues"
+  },
+  "homepage": "https://github.com/hoquangtri289/my-hello#readme"
 }
