@@ -33,7 +33,6 @@ db.once('open', function () {
 app.use(express.json());
 app.use(cors());
 
-
 // Trang Admin
 app.use('/admin', Admin_router);
 
