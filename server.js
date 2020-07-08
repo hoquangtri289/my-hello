@@ -19,6 +19,7 @@ const Users = require('./models/Users_model');
 const Users_router = require('./routers/Users_router');
 const MyAbout_router = require('./routers/MyAbout_router');
 const NoiDungBaiViet_router = require('./routers/NoiDungBaiViet_router');
+const CardRight_router = require('./routers/CardRight_router');
 
 // Xac Thuc Voi JWT
 const {validate} = require('./validate/Admin_validate');
@@ -53,6 +54,8 @@ app.use('/myabout', validate, MyAbout_router);
 // Trang NoiDungBaiViet
 app.use('/noidungbaiviet',validate, NoiDungBaiViet_router);
 
+// Trang CardRight
+app.use('/cardright', validate, CardRight_router);
 
 let port = process.env.PORT || 5000;
 app.listen(port, () => {
