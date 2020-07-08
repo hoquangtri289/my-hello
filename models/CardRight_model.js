@@ -7,7 +7,7 @@ const CardRightSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        default: new Date().toLocaleString().replace(/, /, '-')
+        default: new Date().toLocaleDateString()
     },
     picture: {
         url: {
