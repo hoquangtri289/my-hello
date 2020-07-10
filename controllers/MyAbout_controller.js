@@ -12,7 +12,6 @@ class MyAboutController {
     }
 
     async update(req, res){
-        console.log("vo update");
         let data = await API_Server.update(MyAbout_model, req, res);
         res.json(data);
     }

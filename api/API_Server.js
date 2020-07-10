@@ -2,9 +2,10 @@ const API_Coudinary = require('./API_Coudinay');
 
 class API_Server {
     async getList(Database, req, res) {
-        let originalUrl = req.baseUrl.slice(1);
-        let filter = JSON.parse(req.query.filter);
-        if (Array.isArray(filter.id)) {
+        let originalUrl = req.baseUrl.slice(1);    
+        let filter = JSON.parse(req.query.filter); 
+
+        if (Array.isArray(filter.id)) { 
             filter.id = filter.id[0];
             let data = await Database.find(filter);
             return data;
@@ -13,15 +14,16 @@ class API_Server {
         let range = req.query.range.match(/\d+/g);
         let lm = range[1] - +range[0] + 1;
         let n = range[0];
-        let [key, val] = req.query.sort.match(/\w+/g);
+        let [key, val] = req.query.sort.match(/\w+/g); 
 
-        let count = await Database.countDocuments();
-        let value = await `${originalUrl} ${range[0]}-${range[1]}/${count}`;
+        let count = await Database.countDocuments(); 
+        let value = await `${originalUrl} ${range[0]}-${range[1]}/${count}`; 
+
         await res.set({
             'Access-Control-Expose-Headers': 'Content-Range',
-            'Content-Range': value
+            'Content-Range': value // Cái này gửi hình sau
         });
-        let data = await Database.find(filter).limit(parseInt(lm)).skip(parseInt(n)).sort({ [key]: val });
+        let data = await Database.find(filter).limit(parseInt(lm)).skip(parseInt(n)).sort({ [key]: val }).select("-article");
         return data;
     }
 
