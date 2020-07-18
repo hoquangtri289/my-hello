@@ -5,6 +5,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 const MONGOOSE_URI = process.env.MONGOOSE_URI || '';
 mongoose.connect(MONGOOSE_URI, {
@@ -36,11 +37,10 @@ app.use(cors());
 
 // Trang home
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Hello to page web of me'
-  })
-})
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // Trang Admin
 app.use('/admin', Admin_router);

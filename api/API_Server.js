@@ -2,15 +2,9 @@ const API_Coudinary = require('./API_Coudinay');
 
 class API_Server {
     async getList(Database, req, res) {
-        let originalUrl = req.baseUrl.slice(1);    
+        let originalUrl = req.baseUrl.slice(1);   
+    
         let filter = JSON.parse(req.query.filter); 
-
-        if (Array.isArray(filter.id)) { 
-            filter.id = filter.id[0];
-            let data = await Database.find(filter);
-            return data;
-        }
-
         let range = req.query.range.match(/\d+/g);
         let lm = range[1] - +range[0] + 1;
         let n = range[0];
