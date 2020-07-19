@@ -35,6 +35,8 @@ db.once('open', function () {
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 // Trang Admin
 app.use('/admin', Admin_router);
 
