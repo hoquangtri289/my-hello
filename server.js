@@ -35,8 +35,6 @@ db.once('open', function () {
 app.use(express.json());
 app.use(cors());
 
-// Trang home
-
 // Trang Admin
 app.use('/admin', Admin_router);
 
@@ -51,6 +49,11 @@ app.use('/noidungbaiviet',validate, NoiDungBaiViet_router);
 
 // Trang CardRight
 app.use('/cardright', validate, CardRight_router);
+
+// Trang home
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 let port = process.env.PORT || 5000;
 app.listen(port, () => {
