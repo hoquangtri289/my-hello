@@ -5,7 +5,6 @@ const app = express();
 
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
 
 const MONGOOSE_URI = process.env.MONGOOSE_URI || '';
 mongoose.connect(MONGOOSE_URI, {
