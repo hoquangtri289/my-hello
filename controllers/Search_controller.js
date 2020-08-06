@@ -6,10 +6,14 @@ const SearchController = {
     getList: async (req, res) => {
         let noiDung = await API_Server.getList(NoiDungBaiViet_Model, req, res);
         let data = await API_Server.getList(CardRight_Model, req, res);
-        res.json([
-            { source: "noidungbaiviet", data: noiDung },
-            { source: "cardright", data: data },
-        ]);
+        if(!noiDung.length && !data.length){
+            res.json([]);
+        } else {
+            res.json([
+                { source: "noidungbaiviet", data: noiDung },
+                { source: "cardright", data: data },
+            ]);
+        }
     },
 };
 
